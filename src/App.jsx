@@ -1,8 +1,14 @@
-import { useState } from 'react';
-import './App.css';
+import Header from './components/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <div>
+        <Header />
+      </div>
+    </>
+  );
 }
 
 export default App;
