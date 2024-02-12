@@ -7,13 +7,15 @@ import {
   Nav,
   Navbar,
 } from 'react-bootstrap';
+import { FaCartShopping } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <Navbar bg="dark" variant="dark" style={{ height: 70 }}>
       <Container>
         <Navbar.Brand>
-          <a href="/">Products</a>
+          <Link to="/">Products</Link>
         </Navbar.Brand>
         <Navbar.Text className="search">
           <FormControl
@@ -28,6 +30,7 @@ const Header = () => {
             title="Dropdown end"
             id="dropdown-menu-align-end">
             <Dropdown.Toggle variant="success">
+              <FaCartShopping color="white" fontSize="20px" />
               <Badge>{10}</Badge>
             </Dropdown.Toggle>
             <Dropdown.Menu style={{ minWidth: 370 }}>
