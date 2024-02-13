@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home';
@@ -11,8 +11,10 @@ function App() {
         <Header />
       </div>
       <BrowserRouter>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
       </BrowserRouter>
     </>
   );
