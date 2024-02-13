@@ -14,9 +14,7 @@ const Header = () => {
   return (
     <Navbar bg="dark" variant="dark" style={{ height: 70 }}>
       <Container>
-        <Navbar.Brand>
-          <Link to="/">Products</Link>
-        </Navbar.Brand>
+        <Navbar.Brand></Navbar.Brand>
         <Navbar.Text className="search">
           <FormControl
             style={{ width: 400 }}
