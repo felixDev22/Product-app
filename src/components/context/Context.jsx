@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useReducer } from 'react';
 import axios from 'axios';
 
 const Cart = createContext();
@@ -19,7 +19,10 @@ const Context = ({ children }) => {
     fetchProducts();
   }, []);
 
-  console.log(products);
+  const [state, dispatch] = useReducer(cartReducer, {
+    products: products
+    cart: []
+  });
 
   return <Cart.Provider value={products}>{children}</Cart.Provider>;
 };
