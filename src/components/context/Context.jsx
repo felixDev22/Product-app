@@ -7,16 +7,15 @@ import React, {
 } from 'react';
 import axios from 'axios';
 import { cartReducer } from './cartReducer';
-import { productReducer } from './productReducer';
 
 const Cart = createContext();
-const [state, dispatch] = useReducer(cartReducer, {
-  products: [],
-  cart: [],
-});
-
 const Context = ({ children }) => {
   const [products, setProducts] = useState([]);
+
+  const [state, dispatch] = useReducer(cartReducer, {
+    products: [],
+    cart: [],
+  });
 
   useEffect(() => {
     const fetchProducts = async () => {
