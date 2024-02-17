@@ -3,20 +3,22 @@ import { CartState } from './context/Context';
 
 const Home = () => {
   const { state } = CartState();
+  const { products } = state;
 
-  console.log('Type ofe state.prpducts:', typeof state.products);
-
-  if (state.products.length === 0) {
+  if (!Array.isArray(products?.products) || products.products.length === 0) {
     return <div>Loading...</div>;
   }
-  console.log(state.products);
+
+  const productList = products.products;
 
   return (
     <div>
       <h2>Products</h2>
       <ul>
-        {state.products.map((product) => (
-          <li key={product.id}>{product.title}</li>
+        {productList.map((product) => (
+          <li className="badge bg-primary text-wrap" key={product.id}>
+            {product.title}
+          </li>
         ))}
       </ul>
     </div>

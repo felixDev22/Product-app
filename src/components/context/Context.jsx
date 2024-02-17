@@ -21,7 +21,7 @@ const Context = ({ children }) => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get('https://dummyjson.com/products');
-        dispatch({ type: 'SET_PRODUCT', payload: response.data });
+        dispatch({ type: 'SET_PRODUCTS', payload: response.data }); // Corrected action type
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);
