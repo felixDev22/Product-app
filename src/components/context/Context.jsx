@@ -21,7 +21,7 @@ const Context = ({ children }) => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get('https://dummyjson.com/products');
-        dispatch({ type: 'SET_PRODUCTS', payload: response.data }); // Corrected action type
+        dispatch({ type: 'SET_PRODUCTS', payload: response.data }); 
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -30,8 +30,6 @@ const Context = ({ children }) => {
 
     fetchProducts();
   }, []);
-
-  console.log(products);
 
   return <Cart.Provider value={{ state, dispatch }}>{children}</Cart.Provider>;
 };
