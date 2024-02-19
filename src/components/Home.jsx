@@ -1,5 +1,7 @@
 import React from 'react';
 import { CartState } from './context/Context';
+import '../styles/styles.css';
+import { Card } from 'react-bootstrap';
 
 const Home = () => {
   const { state } = CartState();
@@ -11,16 +13,31 @@ const Home = () => {
 
   const productList = products.products;
 
+  console.log(productList);
+
   return (
-    <div>
+    <div className="product-diplay">
       <h2>Products</h2>
-      <ul>
+      <div className="product-container">
         {productList.map((product) => (
-          <li className="badge bg-primary text-wrap" key={product.id}>
-            {product.title}
-          </li>
+          <Card key={product.id} className="Card">
+            <Card.Img
+              variant="top"
+              className="card-img"
+              src={product.thumbnail}
+              alt={product.title}
+            />
+            <Card.Body>
+              <Card.Title>{product.title}</Card.Title>
+              <Card.Subtitle>
+                <span>
+                  {product.price},{product.rating}
+                </span>
+              </Card.Subtitle>
+            </Card.Body>
+          </Card>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
