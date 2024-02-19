@@ -16,11 +16,11 @@ const Home = () => {
   console.log(productList);
 
   return (
-    <div className="product-diplay">
+    <div className="product-display">
       <h2>Products</h2>
       <div className="product-container">
         {productList.map((product) => (
-          <Card key={product.id} className="Card">
+          <Card key={product.id} className="card">
             <Card.Img
               variant="top"
               className="card-img"
@@ -28,10 +28,10 @@ const Home = () => {
               alt={product.title}
             />
             <Card.Body>
-              <Card.Title>{product.title}</Card.Title>
-              <Card.Subtitle>
+              <Card.Title className="card-title">{product.title}</Card.Title>
+              <Card.Subtitle className="card-subtitle">
                 <span>
-                  {product.price},{product.rating}
+                  {product.price}, {product.rating}
                 </span>
               </Card.Subtitle>
             </Card.Body>
