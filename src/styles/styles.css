@@ -1,0 +1,19 @@
+.product-diplay {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: aquamarine;
+}
+
+.product-container {
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 20px;
+  width: 400px;
+}
+.card-img {
+  width: fit-content;
+}
