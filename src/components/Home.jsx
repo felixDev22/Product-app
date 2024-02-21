@@ -1,8 +1,9 @@
 import React from 'react';
 import { CartState } from './context/Context';
 import '../styles/styles.css';
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import SideFilter from './SideFilter';
+import Rating from './Rating';
 
 const Home = () => {
   const { state } = CartState();
@@ -31,10 +32,12 @@ const Home = () => {
             <Card.Body>
               <Card.Title className="card-title">{product.title}</Card.Title>
               <Card.Subtitle className="card-subtitle">
-                <span>
-                  {product.price}, {product.rating}
-                </span>
+                <span>${product.price} </span>
+                <Rating rating={product.rating} />
               </Card.Subtitle>
+
+              <Button>Add to Cart</Button>
+              <Button variant="danger">Delete from Cart</Button>
             </Card.Body>
           </Card>
         ))}
