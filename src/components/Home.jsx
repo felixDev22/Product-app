@@ -2,6 +2,7 @@ import React from 'react';
 import { CartState } from './context/Context';
 import '../styles/styles.css';
 import { Card } from 'react-bootstrap';
+import SideFilter from './SideFilter';
 
 const Home = () => {
   const { state } = CartState();
@@ -17,7 +18,7 @@ const Home = () => {
 
   return (
     <div className="product-display">
-      <h2>Products</h2>
+      <SideFilter />
       <div className="product-container">
         {productList.map((product) => (
           <Card key={product.id} className="card">
