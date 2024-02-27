@@ -36,8 +36,25 @@ const Home = () => {
                 <Rating rating={product.rating} />
               </Card.Subtitle>
 
-              <Button>Add to Cart</Button>
-              <Button variant="danger">Delete from Cart</Button>
+              <Button
+                onClick={() => {
+                  dispatch({
+                    type: 'ADD_TO_CART',
+                    payload: product,
+                  });
+                }}>
+                Add to Cart
+              </Button>
+              <Button
+                onClick={() => {
+                  dispatch({
+                    type: 'REMOVE_FROM_CART',
+                    payload: product,
+                  });
+                }}
+                variant="danger">
+                Delete from Cart
+              </Button>
             </Card.Body>
           </Card>
         ))}
