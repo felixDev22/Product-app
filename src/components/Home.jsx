@@ -15,6 +15,8 @@ const Home = () => {
 
   const productList = products.products;
 
+
+
   console.log(productList);
 
   return (
@@ -35,8 +37,9 @@ const Home = () => {
                 <span>${product.price} </span>
                 <Rating rating={product.rating} />
               </Card.Subtitle>
+            {cart.some(p=>p.id===product.id)?(
 
-              <Button
+<Button
                 onClick={() => {
                   dispatch({
                     type: 'ADD_TO_CART',
@@ -45,7 +48,7 @@ const Home = () => {
                 }}>
                 Add to Cart
               </Button>
-              <Button
+            ):(<Button
                 onClick={() => {
                   dispatch({
                     type: 'REMOVE_FROM_CART',
@@ -54,7 +57,10 @@ const Home = () => {
                 }}
                 variant="danger">
                 Delete from Cart
-              </Button>
+              </Button>)
+              
+              
+              
             </Card.Body>
           </Card>
         ))}
