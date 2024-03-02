@@ -6,16 +6,16 @@ import SideFilter from './SideFilter';
 import Rating from './Rating';
 
 const Home = () => {
-  const { state } = CartState();
-  const { products } = state;
+  const { state, dispatch } = CartState();
+  const { products, cart } = state;
 
   if (!Array.isArray(products?.products) || products.products.length === 0) {
     return <div>Loading...</div>;
   }
 
+  console.log(cart);
+
   const productList = products.products;
-
-
 
   console.log(productList);
 
@@ -37,30 +37,28 @@ const Home = () => {
                 <span>${product.price} </span>
                 <Rating rating={product.rating} />
               </Card.Subtitle>
-            {cart.some(p=>p.id===product.id)?(
-
-<Button
-                onClick={() => {
-                  dispatch({
-                    type: 'ADD_TO_CART',
-                    payload: product,
-                  });
-                }}>
-                Add to Cart
-              </Button>
-            ):(<Button
-                onClick={() => {
-                  dispatch({
-                    type: 'REMOVE_FROM_CART',
-                    payload: product,
-                  });
-                }}
-                variant="danger">
-                Delete from Cart
-              </Button>)
-              
-              
-              
+              {cart.some((p) => p.id === product.id) ? (
+                <Button
+                  onClick={() => {
+                    dispatch({
+                      type: 'REMOVE_FROM_CART',
+                      payload: product,
+                    });
+                  }}
+                  variant="danger">
+                  Delete from Cart
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => {
+                    dispatch({
+                      type: 'ADD_TO_CART',
+                      payload: product,
+                    });
+                  }}>
+                  Add to Cart
+                </Button>
+              )}
             </Card.Body>
           </Card>
         ))}
